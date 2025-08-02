@@ -53,6 +53,9 @@ dependencies = [
     { name = "fastmcp" },
     { name = "mcp", extra = ["cli"] },
     { name = "mcp-server" },
+    { name = "pyyaml" },
+    { name = "requests" },
+    { name = "typer" },
 ]
 
 [package.metadata]
@@ -60,6 +63,9 @@ requires-dist = [
     { name = "fastmcp", specifier = ">=2.11.0" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.12.3" },
     { name = "mcp-server", specifier = ">=0.1.4" },
+    { name = "pyyaml", specifier = ">=6.0.2" },
+    { name = "requests", specifier = ">=2.32.4" },
+    { name = "typer", specifier = ">=0.16.0" },
 ]
 
 [[package]]

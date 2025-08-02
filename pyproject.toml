@@ -1,0 +1,11 @@
+[project]
+name = "buildmcpserver"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastmcp>=2.11.0",
+    "mcp[cli]>=1.12.3",
+    "mcp-server>=0.1.4",
+]

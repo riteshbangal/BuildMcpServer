@@ -43,6 +43,31 @@ Here's how the different components fit together:
 
 ![Jenkins Integration Security](assets/jenkins_integration_security.png)
 
+## Solution with existing IDP
+
+### A. Your Existing IDP Server
+- Already handles browser-based SSO (e.g., Keycloak, Okta, Auth0, Azure AD)
+- Can issue tokens (access/refresh) and validate them via OAuth 2.0 standards
+- No changes needed to the IDP itself!
+
+### B. MCP Server Additions
+- **Token Validation Endpoint:**
+    - MCP server will call your IDP's token introspection endpoint or verify JWTs locally.
+    - Example IDP endpoints:
+
+      ```text
+      # Token Introspection (active/inactive check)
+      POST /oauth2/introspect
+
+      # JWKS (public keys to verify JWT signatures)
+      GET /oauth2/jwks
+      ```
+- **User Permission Mapping:**
+    - Extract user identity (e.g., `sub` or `email` from the token)
+    - Map to internal permissions (e.g., "user123 can access Jenkins folder /frontend")
+
+![Jenkins Integration Security 2](assets/jenkins_integration_security_2.png)
+
 ### Key Implementation Details
 
 * **Jenkins API Tokens:** For your MCP server to interact with Jenkins on behalf of a user, it's a best practice to use **Jenkins API tokens** generated for each user. This avoids using passwords and provides a more secure, revocable credential.

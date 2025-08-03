@@ -47,3 +47,5 @@ Here's how the different components fit together:
 
 * **Jenkins API Tokens:** For your MCP server to interact with Jenkins on behalf of a user, it's a best practice to use **Jenkins API tokens** generated for each user. This avoids using passwords and provides a more secure, revocable credential.
 * **Confused Deputy Problem:** Your design must mitigate the "confused deputy" problem. The MCP server is the "deputy" that can be confused into performing an action with its own elevated privileges on behalf of a user with lower privileges. The architecture outlined above prevents this by always checking the user's specific permissions against the target resource in Jenkins, ensuring the server acts only with the delegated authority of the user.
+
+

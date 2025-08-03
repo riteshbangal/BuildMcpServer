@@ -6,7 +6,7 @@
 - This flow is suitable for agent/device authentication.
 - See the diagram below for the device authorization process:
 
-![Device Authorization Flow](utilities/assets/Device_Authorization_Flow.png)
+![Device Authorization Flow](assets/Device_Authorization_Flow.png)
 
 ## 2. Pre-Authorized Tokens (Alternative)
 

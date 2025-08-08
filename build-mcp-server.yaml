@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: build-mcp-server
+  namespace: mcp-servers
+  labels:
+    app: build-mcp-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: build-mcp-server
+  template:
+    metadata:
+      labels:
+        app: build-mcp-server
+    spec:
+      containers:
+        - name: build-mcp-server
+          image: 314201/build-mcp-server:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: mcp-server-secrets
+                  key: api_key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: build-mcp-server-service
+spec:
+  type: ClusterIP
+  selector:
+    app: build-mcp-server
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

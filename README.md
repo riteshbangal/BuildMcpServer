@@ -2,6 +2,10 @@
 
 A lightweight framework and tooling system for building and running MCP (Model Context Protocol) servers and inspectors using FastMCP.
 
+<a href="https://glama.ai/mcp/servers/@riteshbangal/BuildMcpServer">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@riteshbangal/BuildMcpServer/badge" alt="BuildMcpServer MCP server" />
+</a>
+
 ---
 
 ## Overview
